@@ -1,57 +1,10 @@
 import pandas as pd
 import numpy as np
 from abc import ABC, abstractmethod
+from sys import exit
 
 
 class sales(ABC):
-    @abstractmethod
-    def __init__(self):
-        pass
-
-    @abstractmethod
-    def load_data(self):
-        pass
-
-    @abstractmethod
-    def explore_data(self):
-        pass
-
-    @abstractmethod
-    def clean_data(self):
-        pass
-
-    @abstractmethod
-    def mathematical_operations(self):
-        pass
-
-    @abstractmethod
-    def combine_data(self):
-        pass
-
-    @abstractmethod
-    def split_data(self):
-        pass
-
-    @abstractmethod
-    def search_sort_filter(self):
-        pass
-
-    @abstractmethod
-    def aggregate_functions(self):
-        pass
-
-    @abstractmethod
-    def statistical_analysis(self):
-        pass
-
-    @abstractmethod
-    def create_pivot_table(self):
-        pass
-
-    @abstractmethod
-    def visualize_data(self):
-        pass
-
     @abstractmethod
     def __init__(self):
         pass
@@ -108,7 +61,7 @@ class sales(ABC):
 class SalesDataAnalzer(sales):
 
     def __init__(self):
-        pass
+        self.access = True
 
     def load_data(self):
         pass
@@ -148,11 +101,33 @@ class SalesDataAnalzer(sales):
 
 
 def show_menu():
-    pass
+    print("------------------------------------------")
+    print("Welcome to data analysis and visualization")
+    print("------------------------------------------\n")
+    print("The main menu ::")
+    print("1. Load dataset")
+    print("2. Explore data")
+    print("3. Perform Dataframe Operation")
+    print("4. Handle missing value")
+    print("5. Generate Descriptive Statistics")
+    print("6. Data Visualization")
+    print("7. Save Visualization")
+    print("8. Exit")
+    return input("Enter your choice : ")
 
 
 def main():
-    pass
+    data_structure = SalesDataAnalzer()
+    while data_structure.access:
+        cho = show_menu()
+        match cho:
+            case "1":
+                pass
+            case "8":
+                print("Thank you for using this and good bye!!")
+                exit()
+            case _:
+                print("Invalid input")
 
 
 if __name__ == "__main__":
