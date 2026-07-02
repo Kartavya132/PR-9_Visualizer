@@ -78,7 +78,31 @@ class SalesDataAnalzer(sales):
         return None
 
     def explore_data(self):
-        pass
+        if self.data is not None:
+            print("-----------------------------")
+            print("Choose option::-")
+            print("1. Display top 5 rows")
+            print("2. Display bottom 5 rows")
+            print("3. Display Column name")
+            print("4. Display data type")
+            print("5. Display Basic info")
+            cho = input("Enter the choice : ")
+            match cho:
+                case "1":
+                    print(self.data.head())
+                case "2":
+                    print(self.data.tail())
+                case "3":
+                    print(self.data.columns)
+                case "4":
+                    print(self.data.dtypes)
+                case "5":
+                    print(self.data.info())
+                case _:
+                    print("Invalid choice")
+            print("----------------------------")
+        else:
+            print("There is no saved data")
 
     def clean_data(self):
         pass
