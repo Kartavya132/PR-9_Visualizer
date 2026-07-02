@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import os
 from abc import ABC, abstractmethod
 from sys import exit
 
@@ -23,10 +24,6 @@ class sales(ABC):
 
     @abstractmethod
     def mathematical_operations(self):
-        pass
-
-    @abstractmethod
-    def combine_data(self):
         pass
 
     @abstractmethod
@@ -62,9 +59,23 @@ class SalesDataAnalzer(sales):
 
     def __init__(self):
         self.access = True
+        self.data = None
 
     def load_data(self):
-        pass
+        FILE_NAME = input("Enter the name of file : ")
+        try:
+            path = os.path.abspath(FILE_NAME)
+            data = pd.read_csv(path)
+            self.data = data
+            print("The data is loaded successfully!!")
+            return self.data
+        except FileNotFoundError:
+            self.data = None
+            print("There is no such file")
+        except FileExistsError:
+            self.data = None
+            print("There is no such file in dir")
+        return None
 
     def explore_data(self):
         pass
@@ -73,9 +84,6 @@ class SalesDataAnalzer(sales):
         pass
 
     def mathematical_operations(self):
-        pass
-
-    def combine_data(self):
         pass
 
     def split_data(self):
@@ -122,6 +130,18 @@ def main():
         cho = show_menu()
         match cho:
             case "1":
+                data_structure.load_data()
+            case "2":
+                data_structure.explore_data()
+            case "3":
+                pass
+            case "4":
+                pass
+            case "5":
+                pass
+            case "6":
+                pass
+            case "7":
                 pass
             case "8":
                 print("Thank you for using this and good bye!!")
